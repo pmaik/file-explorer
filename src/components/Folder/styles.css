@@ -1,0 +1,35 @@
+.folder-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.folder {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: lightgray;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.folder-icon {
+    height: 25px;
+    width: 25px;
+    color: darkgoldenrod;
+}
+
+.folder-name {
+    font-weight: bold;
+    font-size: larger;
+}
+
+.nested-folders {
+    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

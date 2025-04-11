@@ -1,0 +1,12 @@
+.file-explorer-wrapper {
+    padding: 10px;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 3px solid gray;
+}
+
+.file-explorer {
+    padding-top: 20px;
+}

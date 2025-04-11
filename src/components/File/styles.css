@@ -1,0 +1,17 @@
+.file {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.file-icon {
+    height: 25px;
+    width: 25px;
+    color: lightslategray;
+}
+
+.file-name {
+    font-weight: bold;
+    font-size: larger;
+}
