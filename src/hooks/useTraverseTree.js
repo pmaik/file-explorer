@@ -48,11 +48,11 @@ const useTraverseTree = () => {
     }
 
     const deleteNode = (tree, folderId) => {
-        tree.items = tree.items
+        const updatedItems = tree.items
             .filter((item) => item.id !== folderId)
             .map((item) => deleteNode(item, folderId));
 
-        return tree;
+        return { ...tree, items: updatedItems };
     };
 
     return { insertNode, deleteNode };
