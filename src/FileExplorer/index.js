@@ -4,9 +4,7 @@ import Folder from "../components/Folder";
 import File from "../components/File";
 import "./styles.css";
 
-const FileExplorer = ({ explorerData, updateExplorerData }) => {
-    console.log("explorerData", explorerData);
-
+const FileExplorer = ({ explorer, handleInsertNode }) => {
     return (
         <div className="file-explorer-wrapper">
             <div className="header">
@@ -14,10 +12,13 @@ const FileExplorer = ({ explorerData, updateExplorerData }) => {
             </div>
 
             <div className="file-explorer">
-                {explorerData.isFolder ? (
-                    <Folder explorer={explorerData} />
+                {explorer.isFolder ? (
+                    <Folder
+                        explorer={explorer}
+                        handleInsertNode={handleInsertNode}
+                    />
                 ) : (
-                    <File name={explorerData.name} />
+                    <File name={explorer.name} />
                 )}
             </div>
         </div>
@@ -25,8 +26,8 @@ const FileExplorer = ({ explorerData, updateExplorerData }) => {
 };
 
 FileExplorer.propTypes = {
-    explorerData: PropTypes.object,
-    updateExplorerData: PropTypes.func,
+    explorer: PropTypes.object,
+    handleInsertNode: PropTypes.func,
 };
 
 export default FileExplorer;

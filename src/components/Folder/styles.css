@@ -6,14 +6,19 @@
 }
 
 .folder {
-    width: 200px;
+    width: 400px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 10px;
     background-color: lightgray;
     padding: 10px 20px;
-    border-radius: 4px;
-    cursor: pointer;
+}
+
+.folder-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .folder-icon {
@@ -27,8 +32,42 @@
     font-size: larger;
 }
 
+.create-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    /* opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none; */
+}
+/* .folder:hover .create-buttons {
+    opacity: 1;
+    pointer-events: auto;
+} */
+
+.create-buttons > button {
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.input-wrapper {
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.input-wrapper > input {
+    padding: 10px 20px;
+    font-size: large;
+    font-weight: 500;
+}
+
 .nested-folders {
-    padding-left: 10px;
+    padding-left: 20px;
     display: flex;
     flex-direction: column;
     gap: 10px;

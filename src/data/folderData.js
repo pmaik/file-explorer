@@ -77,13 +77,13 @@ const explorerJson = {
                     isFolder: false,
                     items: [],
                 },
-                {
-                    id: "125",
-                    name: "package.json",
-                    isFolder: false,
-                    items: [],
-                },
             ],
+        },
+        {
+            id: "13",
+            name: "package.json",
+            isFolder: false,
+            items: [],
         },
     ],
 };
