@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import File from "../File";
-import { FaFolder, FaFileAlt } from "react-icons/fa";
+import { FaFolder, FaFileAlt, FaTrash } from "react-icons/fa";
 import "./styles.css";
 
-const Folder = ({ explorer, handleInsertNode }) => {
+const Folder = ({ explorer, handleInsertNode, handleDeleteNode }) => {
     const [showNested, setShowNested] = useState(false);
     const [showInput, setShowInput] = useState({
         isVisible: false,
@@ -43,6 +43,14 @@ const Folder = ({ explorer, handleInsertNode }) => {
         });
     };
 
+    const handleDeleteClick = () => {
+        handleDeleteNode(explorer.id);
+    };
+
+    if (!explorer.isFolder) {
+        return <File explorer={explorer} handleDeleteNode={handleDeleteNode} />;
+    }
+
     return (
         <div className="folder-wrapper">
             <div onClick={handleFolderClick} className="folder">
@@ -57,6 +65,9 @@ const Folder = ({ explorer, handleInsertNode }) => {
                     </button>
                     <button onClick={(e) => handleCreateClick(e, false)}>
                         File +{" "}
+                    </button>
+                    <button onClick={handleDeleteClick} className="delete-btn">
+                        <FaTrash className="delete-icon" />
                     </button>
                 </div>
             </div>
@@ -84,17 +95,14 @@ const Folder = ({ explorer, handleInsertNode }) => {
 
             {showNested && explorer.items.length !== 0 && (
                 <div className="nested-folders">
-                    {explorer?.items.map((item) =>
-                        item?.isFolder ? (
-                            <Folder
-                                key={item.id}
-                                explorer={item}
-                                handleInsertNode={handleInsertNode}
-                            />
-                        ) : (
-                            <File key={item.id} name={item.name} />
-                        )
-                    )}
+                    {explorer?.items.map((item) => (
+                        <Folder
+                            key={item.id}
+                            explorer={item}
+                            handleInsertNode={handleInsertNode}
+                            handleDeleteNode={handleDeleteNode}
+                        />
+                    ))}
                 </div>
             )}
         </div>
@@ -104,6 +112,7 @@ const Folder = ({ explorer, handleInsertNode }) => {
 Folder.propTypes = {
     explorer: PropTypes.object,
     handleInsertNode: PropTypes.func,
+    handleDeleteNode: PropTypes.func,
 };
 
 export default Folder;

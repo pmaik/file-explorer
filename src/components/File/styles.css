@@ -1,5 +1,15 @@
-.file {
+.file-wrapper {
     width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+.file-wrapper:hover {
+    background-color: lightgray;
+}
+
+.file {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -14,4 +24,9 @@
 .file-name {
     font-weight: bold;
     font-size: larger;
+}
+
+.file-wrapper:hover .delete-btn {
+    opacity: 1;
+    pointer-events: auto;
 }

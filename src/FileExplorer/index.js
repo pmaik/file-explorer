@@ -1,26 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Folder from "../components/Folder";
-import File from "../components/File";
 import "./styles.css";
 
-const FileExplorer = ({ explorer, handleInsertNode }) => {
+const FileExplorer = ({ explorer, handleInsertNode, handleDeleteNode }) => {
     return (
         <div className="file-explorer-wrapper">
             <div className="header">
                 <h1>FileExplorer</h1>
             </div>
 
-            <div className="file-explorer">
-                {explorer.isFolder ? (
+            {explorer && (
+                <div className="file-explorer">
                     <Folder
                         explorer={explorer}
                         handleInsertNode={handleInsertNode}
+                        handleDeleteNode={handleDeleteNode}
                     />
-                ) : (
-                    <File name={explorer.name} />
-                )}
-            </div>
+                </div>
+            )}
         </div>
     );
 };
@@ -28,6 +26,7 @@ const FileExplorer = ({ explorer, handleInsertNode }) => {
 FileExplorer.propTypes = {
     explorer: PropTypes.object,
     handleInsertNode: PropTypes.func,
+    handleDeleteNode: PropTypes.func,
 };
 
 export default FileExplorer;

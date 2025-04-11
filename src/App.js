@@ -6,7 +6,6 @@ import "./App.css";
 
 function App() {
     const [explorerData, setExplorerData] = useState(explorerJson);
-    console.log(explorerData);
     const { insertNode, deleteNode } = useTraverseTree();
 
     const handleInsertNode = (folderId, item, isFolder) => {
@@ -15,7 +14,12 @@ function App() {
     };
 
     const handleDeleteNode = (folderId) => {
-        deleteNode(folderId);
+        if (explorerData.id === folderId) {
+            setExplorerData(null);
+        } else {
+            const updatedTree = deleteNode(explorerData, folderId);
+            setExplorerData(updatedTree);
+        }
     };
 
     return (
@@ -23,6 +27,7 @@ function App() {
             <FileExplorer
                 explorer={explorerData}
                 handleInsertNode={handleInsertNode}
+                handleDeleteNode={handleDeleteNode}
             />
         </div>
     );
